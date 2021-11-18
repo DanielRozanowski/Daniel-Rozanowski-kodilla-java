@@ -1,8 +1,16 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.calculator.Calculator;
+import com.kodilla.testing.shape.Circle;
+import com.kodilla.testing.shape.ShapeCollector;
+import com.kodilla.testing.shape.Square;
+import com.kodilla.testing.shape.Triangle;
 
 public class TestingMain2 {
+
+
+
+
 
     public static void main(String[] args) {
         Calculator simpleMath = new Calculator(3, 2);
@@ -23,5 +31,6 @@ public class TestingMain2 {
         } else {
             System.out.println("Error!");
         }
+
     }
 }
