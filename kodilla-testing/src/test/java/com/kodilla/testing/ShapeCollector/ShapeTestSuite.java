@@ -1,10 +1,7 @@
 package com.kodilla.testing.ShapeCollector;
 
 
-import com.kodilla.testing.shape.Circle;
-import com.kodilla.testing.shape.ShapeCollector;
-import com.kodilla.testing.shape.Square;
-import com.kodilla.testing.shape.Triangle;
+import com.kodilla.testing.shape.*;
 import org.junit.jupiter.api.*;
 
 public class ShapeTestSuite {
@@ -29,6 +26,7 @@ public class ShapeTestSuite {
         System.out.println("Test Suite: end");
     }
 
+    @DisplayName("Should add Figure.")
     @Test
      void testAddFigure(){
         //Given
@@ -46,6 +44,7 @@ public class ShapeTestSuite {
 
     }
 
+    @DisplayName("Should remove Figure.")
     @Test
     void testRemoveFigure(){
         //Given
@@ -67,10 +66,10 @@ public class ShapeTestSuite {
 
     }
 
-    
 
+    @DisplayName("Should show Figures.")
     @Test
-    void testShowFigure(){
+    void testShowFigures(){
         //Given
         Circle circle = new Circle(2);
         Square square = new Square(10);
@@ -81,9 +80,27 @@ public class ShapeTestSuite {
         shapeCollector.addFigure(triangle);
         shapeCollector.addFigure(square);
 
-        shapeCollector.showFigures();
+
 
         //Then
+        shapeCollector.showFigures();
+
+    }
+    @DisplayName("Should get Figure.")
+    @Test
+    void testGetFigure(){
+        //Given
+        Circle circle = new Circle(2);
+        Square square = new Square(10);
+        Triangle triangle = new Triangle(10 , 5);
+        ShapeCollector shapeCollector = new ShapeCollector();
+        //When
+        shapeCollector.addFigure(circle);
+
+        //Then
+        Shape shape = shapeCollector.getFigure(0);
+        Assertions.assertEquals(circle , shape );
+
 
     }
 

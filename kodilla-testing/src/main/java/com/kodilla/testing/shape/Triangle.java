@@ -5,8 +5,8 @@ public class Triangle implements Shape{
     private double h;
 
     public Triangle (double a, double h){
-        a = a;
-        h = h;
+       this.a = a;
+       this.h = h;
     }
 
     public String getShapeName(){

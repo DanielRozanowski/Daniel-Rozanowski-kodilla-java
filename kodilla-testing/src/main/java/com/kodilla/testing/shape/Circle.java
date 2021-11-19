@@ -5,7 +5,7 @@ public class Circle implements Shape{
     private double r;
 
     public Circle (double r){
-      r = r;
+     this.r = r;
     }
 
     public String getShapeName(){

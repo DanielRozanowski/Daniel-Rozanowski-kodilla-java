@@ -4,7 +4,7 @@ public class Square implements Shape{
     private double a;
 
     public Square (double a){
-        a = a;
+        this.a = a;
     }
     public String getShapeName(){
         return "square";
