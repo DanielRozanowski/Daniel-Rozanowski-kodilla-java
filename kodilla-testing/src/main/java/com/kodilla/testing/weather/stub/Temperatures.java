@@ -9,6 +9,6 @@ public interface Temperatures {
     //second element of the map is a temperature in Celsius degrees
     Map<String, Double> getTemperatures();
 
-    ArrayList<Double> getTemperatures2();
+
 }
 

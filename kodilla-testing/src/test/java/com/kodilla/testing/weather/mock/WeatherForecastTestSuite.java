@@ -41,34 +41,35 @@ class WeatherForecastTestSuite {
     @Test
     void testCalculateAverageForcastWithMock(){
         //Given
-        ArrayList<Double> temperaturesArray = new ArrayList<>();
-        temperaturesArray.add(25.5);
-        temperaturesArray.add(30.0);
-        temperaturesArray.add(22.4);
-        temperaturesArray.add(23.5);
-        when(temperaturesMock.getTemperatures2()).thenReturn(temperaturesArray);
-
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
         //When
         Double result = weatherForecast.calculateAverage();
         //Then
-        Assertions.assertEquals(25.35, result);
+        Assertions.assertEquals(25.56, result);
     }
     @Test
     void testCalculateMedianForcastWithMock(){
         //Given
-        ArrayList<Double> temperaturesArray = new ArrayList<>();
-        temperaturesArray.add(25.5);
-        temperaturesArray.add(30.0);
-        temperaturesArray.add(22.4);
-        temperaturesArray.add(23.5);
-        when(temperaturesMock.getTemperatures2()).thenReturn(temperaturesArray);
-
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
         //When
-        Double result = weatherForecast.calculateAverage();
+        Double result = weatherForecast.calculateMedian();
         //Then
-        Assertions.assertEquals(25.35, result);
+        Assertions.assertEquals(25.5, result);
     }
 
 }
