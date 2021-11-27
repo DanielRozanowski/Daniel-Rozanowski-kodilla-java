@@ -4,21 +4,71 @@ import com.kodilla.testing.weather.stub.Temperatures;                         //
 import com.kodilla.testing.weather.stub.WeatherForecast;                      // [3]
 import org.junit.jupiter.api.Assertions;                                      // [4]
 import org.junit.jupiter.api.Test;                                            // [5]
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.mock;                                       // [6]
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-class WeatherForecastTestSuite {                                              // [7]
+import static org.mockito.Mockito.when;
 
-    @Test                                                                      // [8]
-    void testCalculateForecastWithMock() {                                     // [9]
+@ExtendWith(MockitoExtension.class)
+class WeatherForecastTestSuite {
+
+    @Mock
+    private Temperatures temperaturesMock;
+
+    @Test
+    void testCalculateForecastWithMock() {
         //Given
-        Temperatures temperaturesMock = mock(Temperatures.class);               // [10]
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);// [11]
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        int quantityOfSensors = weatherForecast.calculateForecast().size();     // [12]
+        int quantityOfSensors = weatherForecast.calculateForecast().size();
 
         //Then
-        Assertions.assertEquals(5, quantityOfSensors);                          // [13]
-    }                                                                          // [14]
+        Assertions.assertEquals(5, quantityOfSensors);
+    }
+    @Test
+    void testCalculateAverageForcastWithMock(){
+        //Given
+        ArrayList<Double> temperaturesArray = new ArrayList<>();
+        temperaturesArray.add(25.5);
+        temperaturesArray.add(30.0);
+        temperaturesArray.add(22.4);
+        temperaturesArray.add(23.5);
+        when(temperaturesMock.getTemperatures2()).thenReturn(temperaturesArray);
+
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //When
+        Double result = weatherForecast.calculateAverage();
+        //Then
+        Assertions.assertEquals(25.35, result);
+    }
+    @Test
+    void testCalculateMedianForcastWithMock(){
+        //Given
+        ArrayList<Double> temperaturesArray = new ArrayList<>();
+        temperaturesArray.add(25.5);
+        temperaturesArray.add(30.0);
+        temperaturesArray.add(22.4);
+        temperaturesArray.add(23.5);
+        when(temperaturesMock.getTemperatures2()).thenReturn(temperaturesArray);
+
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        //When
+        Double result = weatherForecast.calculateAverage();
+        //Then
+        Assertions.assertEquals(25.35, result);
+    }
+
 }

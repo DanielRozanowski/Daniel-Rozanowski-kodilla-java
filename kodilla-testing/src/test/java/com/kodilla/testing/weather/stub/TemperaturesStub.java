@@ -1,5 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,4 +19,16 @@ public class TemperaturesStub implements Temperatures {
 
         return stubResult;
     }
+
+    @Override
+    public ArrayList<Double> getTemperatures2() {
+        ArrayList<Double> temperaturesArray = new ArrayList<>();
+        temperaturesArray.add(25.5);
+        temperaturesArray.add(30.0);
+        temperaturesArray.add(22.4);
+        temperaturesArray.add(23.5);
+        return temperaturesArray;
+    }
+
+
 }
