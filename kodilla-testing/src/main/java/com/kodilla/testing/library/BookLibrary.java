@@ -20,13 +20,7 @@ public class BookLibrary {
         return bookList;
     }
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-        List<Book> bookInHandsOf = ArrayList<Book>();
-        if (bookInHandsOf = 0 ){
-            System.out.println("You dont chose your book yet");
-        }
-        else {
-            return bookInHandsOf;
-        }
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
 
 
     }
