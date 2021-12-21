@@ -21,6 +21,9 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-        PoeamDecorator poemDecorator = (PoeamDecorator) new PoemBeautifier();
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        poemBeautifier.poetBeautifier("aa", s -> "s" + s + "*");
+
+
     }
 }
