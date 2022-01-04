@@ -1,6 +1,6 @@
 package com.kodilla.stream.forumuser;
 
-import jdk.vm.ci.meta.Local;
+
 
 import java.time.LocalDate;
 
@@ -18,23 +18,29 @@ public class ForumUser {
         this.bDate = bDate;
         this.numberOfPost = numberOfPost;
     }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
-    public String getUserName(){
+
+    public String getUserName() {
         return userName;
     }
-    public char getSex(){
+
+    public char getSex() {
         return sex;
     }
-    public LocalDate getBDate(){
+
+    public LocalDate getBDate() {
         return bDate;
     }
-    public int getNumberOfPost(){
+
+    public int getNumberOfPost() {
         return numberOfPost;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
                 ", title='" + userName + '\'' +
@@ -42,4 +48,5 @@ public class ForumUser {
                 ", signature='" + bDate + '\'' +
                 ", numberOfPost='" + numberOfPost + '\'' +
                 '}';
+    }
 }
