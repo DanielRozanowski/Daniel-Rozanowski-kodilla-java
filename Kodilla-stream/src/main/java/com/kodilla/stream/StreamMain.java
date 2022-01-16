@@ -14,12 +14,14 @@ public class StreamMain {
 
     public static void main(String[] args) {
         Forum theForum = new Forum();
+
         Map< Integer , ForumUser> theResultForumUserList = theForum.getUserList().stream()
                 .filter(user -> user.getSex() == 'M')
                 .filter(user -> Period.between(user.getBDate(), LocalDate.now()).getYears() > 20)
                 .filter(User -> User.getNumberOfPost() > 1)
                 .collect(Collectors.toMap(user -> user.getId(), user -> user));
         System.out.println("# elements: " + theResultForumUserList.size());
+
         theResultForumUserList.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
