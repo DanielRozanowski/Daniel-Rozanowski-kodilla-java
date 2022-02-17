@@ -1,11 +1,19 @@
 package com.kodilla.stream.world;
 
-import java.math.BigDecimal;
+import java.util.List;
 
-public class Continent {
+public final class Continent {
+    private final String continentName;
+    final List<Country> countries;
 
-    public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = new BigDecimal("12345678901234567890");
-        return peopleQuantity;
+    public Continent(final String continentName, final List<Country> countries) {
+        this.continentName = continentName;
+        this.countries=countries;
+    }
+    public String getContinentName() {
+        return continentName;
+    }
+    public List<Country> getCountries() {
+        return countries;
     }
 }
