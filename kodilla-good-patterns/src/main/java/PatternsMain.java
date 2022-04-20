@@ -1,11 +1,11 @@
-import com.kodilla.good.patterns.challenges.MovieStore;
+import com.kodilla.good.patterns.challenges.*;
 
 class Application {
     public static void main(String[] args) {
-        MovieStore movieStore = new MovieStore();
-
-        movieStore.getMovies().values().stream()
-                .flatMap(strings -> strings.stream())
-                .forEach(s -> System.out.print(s+"! "));
+        SampleOrder sampleOrder = new SampleOrder();
+        OrderRequest orderRequest = sampleOrder.request();
+        OrderProcessor orderProcessor = new OrderProcessor(new ConfirmService(),
+                new ProductOrderService(), new ProductOrderRepo());
+        orderProcessor.process(orderRequest);
     }
 }
