@@ -1,3 +1,5 @@
+package com.kodilla.good.patterns.challenges;
+
 import com.kodilla.good.patterns.challenges.*;
 
 class Application {
