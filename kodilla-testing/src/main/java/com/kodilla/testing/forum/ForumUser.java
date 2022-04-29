@@ -25,7 +25,7 @@ public class ForumUser {                                       // [5]
     }                                                          // [15]
 
     public void addComment(ForumPost thePost, String author, String commentBody) {   // [16]
-        // do nothing
+
     }                                                           // [17]
 
     public int getPostsQuantity() {
